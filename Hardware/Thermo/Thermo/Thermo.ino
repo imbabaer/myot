@@ -2,10 +2,12 @@
 #include <ESP8266HTTPClient.h>
 #include <Adafruit_BME280.h>
 
-const char* ssid = "FRITZ!Box 7430 HV";
-const char* password = "97364848481831321284";
-//const char* ssid = "FRITZ!Box 7490i";
-//const char* password = "85215572252851731258";
+//const char* ssid = "FRITZ!Box 7430 HV";
+//const char* password = "97364848481831321284";
+const char* ssid = "ZyXEL WAP3205 v3";
+const char* password = "USACG37344";
+const char* ssidalt = "FRITZ!Box 7490i";
+const char* passwordalt = "85215572252851731258";
 
 const char* host = "192.168.178.21";
 const int httpPort = 80;
@@ -22,7 +24,8 @@ WiFiClientSecure client;
 #define SEALEVELPRESSURE_HPA (1013.25)
 Adafruit_BME280 bme;
 unsigned long delayTime;
-
+const String hostAdress = "http://xn--ruben-mller-zhb.de/uptime/temp.php";
+const String deviceID = "device1";
 
 void setup() {
   Serial.begin(115200);
@@ -72,7 +75,7 @@ printValues();
     
  
 HTTPClient http;  //Declare an object of class HTTPClient
- String str = "http://xn--ruben-mller-zhb.de/uptime/temp.php?device=device2&value="+String(bme.readTemperature())+"&pressure="+String(bme.readPressure() / 100.0F)+"&humidity="+String(bme.readHumidity());
+ String str = hostAdress+"?device="+deviceID+"&value="+String(bme.readTemperature())+"&pressure="+String(bme.readPressure() / 100.0F)+"&humidity="+String(bme.readHumidity());
 http.begin(str);
 int httpCode = http.GET();
  
