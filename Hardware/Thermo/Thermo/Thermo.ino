@@ -4,10 +4,10 @@
 
 //const char* ssid = "FRITZ!Box 7430 HV";
 //const char* password = "97364848481831321284";
-const char* ssid = "ZyXEL WAP3205 v3";
-const char* password = "USACG37344";
-const char* ssidalt = "FRITZ!Box 7490i";
-const char* passwordalt = "85215572252851731258";
+//const char* ssid = "ZyXEL WAP3205 v3";
+//const char* password = "USACG37344";
+const char* ssid = "FRITZ!Box 7490i";
+const char* password = "85215572252851731258";
 
 const char* host = "192.168.178.21";
 const int httpPort = 80;
@@ -25,7 +25,7 @@ WiFiClientSecure client;
 Adafruit_BME280 bme;
 unsigned long delayTime;
 const String hostAdress = "http://xn--ruben-mller-zhb.de/uptime/temp.php";
-const String deviceID = "device1";
+const String deviceID = "device2";
 
 void setup() {
   Serial.begin(115200);
