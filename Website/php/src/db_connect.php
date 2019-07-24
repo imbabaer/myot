@@ -5,11 +5,11 @@
     // The host you want to connect to.
     define("HOST", "rdbms.strato.de");
     // The database username. 
-    define("USER", "U3335774");    
+    define("USER", "U3833000");    
     // The database password. 
-    define("PASSWORD", "12345678abc");    
+    define("PASSWORD", "asdgasdg324g234gw");    
     // The database name.
-    define("DATABASE", "DB3335774");   
+    define("DATABASE", "DB3833000");   
 
     define("CAN_REGISTER", "any");
     define("DEFAULT_ROLE", "member");
