@@ -170,7 +170,7 @@ function notifyMe(notificationText) {
                     {
                         notifyMe("Massiver Temperaturanstieg");
                     }
-                    else if(device115minuteTrend === "&#8594;" )
+                    else if(device115minuteTrend === "&#8595;" )
                     {
                         notifyMe("Massiver Temperaturabfall");
                     }
