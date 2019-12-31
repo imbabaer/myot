@@ -6,8 +6,10 @@
 //const char* password = "97364848481831321284";
 //const char* ssid = "ZyXEL WAP3205 v3";
 //const char* password = "USACG37344";
-const char* ssid = "FRITZ!Box 7490i";
-const char* password = "85215572252851731258";
+//const char* ssid = "FRITZ!Box 7490i";
+//const char* password = "85215572252851731258";
+const char* ssid = "Ruben's iPhone";
+const char* password = "isz9mhpnc8cs1";
 
 const char* host = "192.168.178.21";
 const int httpPort = 80;
@@ -25,7 +27,7 @@ WiFiClientSecure client;
 Adafruit_BME280 bme;
 unsigned long delayTime;
 const String hostAdress = "http://xn--ruben-mller-zhb.de/uptime/temp.php";
-const String deviceID = "device2";
+const String deviceID = "device1";
 
 void setup() {
   Serial.begin(115200);
@@ -65,7 +67,7 @@ unsigned status;
   }
 
 int value = 0;
-
+boolean firstrun = true;
 void loop() {}
 void send(){
  
@@ -90,9 +92,17 @@ http.end();   //Close connection
  
 }
  //delay(delayTime);
- ESP.deepSleep(120e6); 
+ //check if the two pins are not connected/ or check if this is the first run, for safely reflashing
+ if(firstrun)
+ {
+  firstrun = false;
+  delay(120000);
+ }
+ else{ 
+ //deepsleep
+ ESP.deepSleep(300e6); 
 }
-
+}
 
 void printValues() {
     Serial.print("Temperature = ");
