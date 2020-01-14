@@ -2,12 +2,10 @@
 #include <ESP8266HTTPClient.h>
 #include <Adafruit_BME280.h>
 
-//const char* ssid = "FRITZ!Box 7430 HV";
-//const char* password = "97364848481831321284";
-const char* ssid = "Office Bonlanden";
-const char* password = "852355722528517399258";
-//const char* ssidalt = "FRITZ!Box 7490i";
-//const char* passwordalt = "85215572252851731258";
+
+const char* ssid = "";
+const char* password = "";
+
 
 const char* host = "192.168.178.21";
 const int httpPort = 80;
