@@ -85,7 +85,7 @@ if ($result = $mysqli->query($queryDev2)) {
     }
     $result->close();
 }
-$query2Dev2 = "SELECT device, value, inserttime FROM temp WHERE  device ='device2' AND  inserttime >= now() - INTERVAL 1 DAY ORDER BY inserttime";
+$query2Dev2 = "SELECT device, value, inserttime FROM temp WHERE  device ='device4' AND  inserttime >= now() - INTERVAL 1 DAY ORDER BY inserttime";
 //$query = "SELECT device, uptimevalue, timestamp FROM uptimes ORDER BY timestamp";
 if ($result = $mysqli->query($query2Dev2)) {
     while ($row = $result->fetch_row()) {
@@ -234,7 +234,7 @@ function notifyMe(notificationText) {
 echo get_current_temp($mysqli, "device1");
 ?>
             </td><td><?php
-echo get_current_temp($mysqli, "device2");
+echo get_current_temp($mysqli, "device4");
 ?></td>
             <td>
 <?php
@@ -242,7 +242,7 @@ echo get_current_temp($mysqli, "device3");
 ?>       </td>
         </tr>
         <tr>
-        <td>device1</td><td>device2</td><td>device3</td></tr>
+        <td>Büro</td><td>Besprechungszimmer</td><td>Außen Uhlbergstr. 100/1</td></tr>
     </table>
 
 
@@ -379,7 +379,7 @@ var chart = new Chart(ctx, {
 	data:{
 		labels: dateLabels2,
     datasets: [{
-      label: 'device1',
+      label: 'Büro',
       data: dataPoints1d,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)'
@@ -392,7 +392,7 @@ var chart = new Chart(ctx, {
       pointHoverRadius: 3
 	},
               {
-      label: 'device2',
+      label: 'Besprechungszimmer',
       data:  dataPoints1dDev2,
       backgroundColor: [
           'rgba(99,255,132,0.2)'
@@ -405,7 +405,7 @@ var chart = new Chart(ctx, {
       pointHoverRadius: 3
 	},
               {
-      label: 'device3',
+      label: 'Außen U100/1',
       data:  dataPoints1dDev3,
       backgroundColor: [
           'rgba(99,132,255,0.2)'
