@@ -1,7 +1,12 @@
 
-int dieSelectorPlus = 10;
-int dieSelectorMinus = 11;
-int rollDiePin = 12;
+//int dieSelectorPlus = 10;//nano7
+//int dieSelectorMinus = 11;//nano8
+//int rollDiePin = 12;//nano9
+
+int dieSelectorPlus = 7;//nano7
+int dieSelectorMinus = 8;//nano8
+int rollDiePin = 9;//nano9
+
 int dieLedPins[] = {3, 4, 5, 6, 7, 8};
 int dieMaxNumbers[] = {4, 6, 8, 10, 12, 20};
 int dieLedPinCount = 0;
@@ -12,21 +17,27 @@ int bitsCount = 0;
 int bits[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0};
 
 int rolled = 0;
-//#define OE      28//2
-int latchPin = 22;//3
-int clockPin = 24;//5
-int dataPin = 26;//6
+int latchPin = 22;//3||
+int clockPin = 24;//5||
+int dataPin = 26;//6||
 byte leds = 0;
-#define SER    26  // 6 data in
-#define SRCLK  24  // 5 shift register clock
-#define SRCLR  30  // 4 clear shift register
-#define RCLK   22  // 3 storage register (sometimes called the latch pin)
-#define OE     28  // 2 enable output
+
+//#define SER    26  // 6 ||nano4 data in
+//#define SRCLK  24  // 5 ||nano3 shift register clock
+//#define SRCLR  30  // 4 ||nano6 clear shift register
+//#define RCLK   22  // 3 ||nano2 storage register (sometimes called the latch pin)
+//#define OE     28  // 2 ||nano5 enable output
+
+#define SER    4  // 6 ||nano4 data in
+#define SRCLK  3  // 5 ||nano3 shift register clock
+#define SRCLR  6  // 4 ||nano6 clear shift register
+#define RCLK   2  // 3 ||nano2 storage register (sometimes called the latch pin)
+#define OE     5  // 2 ||nano5 enable output
 
 void setup()
 {
   Serial.begin(9600);
-  long seed = analogRead(A0);
+  long seed = analogRead(A0); 
   Serial.print("seed: ");
   Serial.println(seed);
   randomSeed(seed);
@@ -206,7 +217,7 @@ void writeRolled()
 
     // get one-digit of rolled
     int onedigitRolled = rolled % 10;
-  //  Serial.println(onedigitRolled);
+    //  Serial.println(onedigitRolled);
 
     bits[7] = onedigitRolled >= 9 ? HIGH : LOW;
     bits[8] = onedigitRolled >= 8 ? HIGH : LOW;
